@@ -1,0 +1,45 @@
+﻿@model IEnumerable<IT_Lab3.Models.FriendModel>
+
+@{
+    ViewBag.Title = "List All";
+}
+
+<h2>List All</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-bordered">
+    <tr>
+        <th>
+            Friend ID
+        </th>
+        <th>
+            Friend Name
+        </th>
+        <th>
+            Place
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FriendID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MestoNaZiveenje)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }, new { @class = "btn btn-info", style = "display: block" }) 
+            <br />
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID }, new { @class = "btn btn-danger", style = "display: block" })
+        </td>
+    </tr>
+}
+
+</table>
